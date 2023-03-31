@@ -20,5 +20,7 @@ namespace Airport_kurs.Models
         public DateTime DepartureTime { get; set; }
         public DateTime ArrivalTimeSchedule { get; set; }
         public DateTime ArrivalTime { get; set; }
+        public int MaxPeople { get; set; }
+        public int People { get; set; }
     }
 }

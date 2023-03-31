@@ -169,6 +169,10 @@
     <Compile Include="Migrations\20230331094739_init.designer.cs">
       <DependentUpon>20230331094739_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20230331104454_v1.cs" />
+    <Compile Include="Migrations\20230331104454_v1.designer.cs">
+      <DependentUpon>20230331104454_v1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\ApplicationContextModelSnapshot.cs" />
     <Compile Include="Models\Airlines.cs" />
     <Compile Include="Models\Airplanes.cs" />
@@ -178,6 +182,9 @@
     <Compile Include="Models\Tickets.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -188,8 +195,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\Form1.datasource" />
-    <None Include="Properties\DataSources\Program.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
