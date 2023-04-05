@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Airport_kurs.Migrations
 {
-    public partial class init : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -31,6 +31,20 @@ namespace Airport_kurs.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Aountries", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Username = table.Column<string>(nullable: true),
+                    Password = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -63,7 +77,9 @@ namespace Airport_kurs.Migrations
                     ToCountryId = table.Column<int>(nullable: false),
                     DepartureTime = table.Column<DateTime>(nullable: false),
                     ArrivalTimeSchedule = table.Column<DateTime>(nullable: false),
-                    ArrivalTime = table.Column<DateTime>(nullable: false)
+                    ArrivalTime = table.Column<DateTime>(nullable: false),
+                    MaxPeople = table.Column<int>(nullable: false),
+                    People = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -152,6 +168,9 @@ namespace Airport_kurs.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Tickets");
+
+            migrationBuilder.DropTable(
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "Airplanes");

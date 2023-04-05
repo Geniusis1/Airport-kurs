@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Airport_kurs.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20230331094739_init")]
-    partial class init
+    [Migration("20230405092141_addAccessToUsersTable")]
+    partial class addAccessToUsersTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -83,6 +83,12 @@ namespace Airport_kurs.Migrations
                     b.Property<int>("InCountryId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("MaxPeople")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("People")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("ToCountryId")
                         .HasColumnType("INTEGER");
 
@@ -125,6 +131,26 @@ namespace Airport_kurs.Migrations
                     b.HasIndex("FlightId");
 
                     b.ToTable("Tickets");
+                });
+
+            modelBuilder.Entity("Airport_kurs.Models.Users", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("AccessLvl")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Username")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Airport_kurs.Models.Airplanes", b =>

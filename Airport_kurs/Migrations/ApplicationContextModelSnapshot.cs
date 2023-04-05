@@ -131,6 +131,26 @@ namespace Airport_kurs.Migrations
                     b.ToTable("Tickets");
                 });
 
+            modelBuilder.Entity("Airport_kurs.Models.Users", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("AccessLvl")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Username")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
             modelBuilder.Entity("Airport_kurs.Models.Airplanes", b =>
                 {
                     b.HasOne("Airport_kurs.Models.Airlines", "Airline")

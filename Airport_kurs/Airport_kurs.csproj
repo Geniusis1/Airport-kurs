@@ -165,13 +165,13 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20230331094739_init.cs" />
-    <Compile Include="Migrations\20230331094739_init.designer.cs">
-      <DependentUpon>20230331094739_init.cs</DependentUpon>
+    <Compile Include="Migrations\20230405080630_Init.cs" />
+    <Compile Include="Migrations\20230405080630_Init.designer.cs">
+      <DependentUpon>20230405080630_Init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20230331104454_v1.cs" />
-    <Compile Include="Migrations\20230331104454_v1.designer.cs">
-      <DependentUpon>20230331104454_v1.cs</DependentUpon>
+    <Compile Include="Migrations\20230405092141_addAccessToUsersTable.cs" />
+    <Compile Include="Migrations\20230405092141_addAccessToUsersTable.designer.cs">
+      <DependentUpon>20230405092141_addAccessToUsersTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\ApplicationContextModelSnapshot.cs" />
     <Compile Include="Models\Airlines.cs" />
@@ -180,6 +180,7 @@
     <Compile Include="Models\Countries.cs" />
     <Compile Include="Models\Flights.cs" />
     <Compile Include="Models\Tickets.cs" />
+    <Compile Include="Models\Users.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

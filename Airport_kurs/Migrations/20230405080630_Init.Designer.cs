@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Airport_kurs.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20230331104454_v1")]
-    partial class v1
+    [Migration("20230405080630_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -131,6 +131,23 @@ namespace Airport_kurs.Migrations
                     b.HasIndex("FlightId");
 
                     b.ToTable("Tickets");
+                });
+
+            modelBuilder.Entity("Airport_kurs.Models.Users", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Username")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Airport_kurs.Models.Airplanes", b =>

@@ -9,6 +9,7 @@ namespace Airport_kurs.Models
         public DbSet<Countries> Aountries { get; set; }
         public DbSet<Flights> Flights { get; set; }
         public DbSet<Tickets> Tickets { get; set; }
+        public DbSet<Users> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
