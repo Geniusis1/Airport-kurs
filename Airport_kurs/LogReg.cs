@@ -4,11 +4,11 @@ using Airport_kurs.Models;
 
 namespace Airport_kurs
 {
-    public partial class Form1 : Form
+    public partial class LogReg : Form
     {
         private AirportContext db;
 
-        public Form1()
+        public LogReg()
         {
             InitializeComponent();
             regErrorsLb.Text = "";

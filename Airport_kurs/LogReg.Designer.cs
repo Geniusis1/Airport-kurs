@@ -1,6 +1,6 @@
 ﻿namespace Airport_kurs
 {
-    partial class Form1
+    partial class LogReg
     {
         /// <summary>
         /// Обязательная переменная конструктора.
