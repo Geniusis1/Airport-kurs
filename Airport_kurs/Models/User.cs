@@ -7,12 +7,28 @@ using System.Threading.Tasks;
 
 namespace Airport_kurs.Models
 {
-    public class Users
+    public class User
     {
         public int Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public int AccessLvl { get; set; }
+
+        public User()
+        {
+            Username = "null";
+            Password = PassToHashString("null");
+            AccessLvl = 0;
+        }
+
+        public User(string username, string password, int access)
+        {
+            this.Username = username;
+            this.Password = PassToHashString(password);
+            this.AccessLvl = access;
+        }
+
+
 
         public static string PassToHashString(string pass)
         {

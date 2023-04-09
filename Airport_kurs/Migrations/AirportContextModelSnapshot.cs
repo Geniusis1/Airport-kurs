@@ -3,22 +3,20 @@ using System;
 using Airport_kurs.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Airport_kurs.Migrations
 {
-    [DbContext(typeof(ApplicationContext))]
-    [Migration("20230405080630_Init")]
-    partial class Init
+    [DbContext(typeof(AirportContext))]
+    partial class AirportContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.1");
 
-            modelBuilder.Entity("Airport_kurs.Models.Airlines", b =>
+            modelBuilder.Entity("Airport_kurs.Models.Airline", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -32,7 +30,7 @@ namespace Airport_kurs.Migrations
                     b.ToTable("Airlines");
                 });
 
-            modelBuilder.Entity("Airport_kurs.Models.Airplanes", b =>
+            modelBuilder.Entity("Airport_kurs.Models.Airplane", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -51,7 +49,7 @@ namespace Airport_kurs.Migrations
                     b.ToTable("Airplanes");
                 });
 
-            modelBuilder.Entity("Airport_kurs.Models.Countries", b =>
+            modelBuilder.Entity("Airport_kurs.Models.Countrie", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -62,10 +60,10 @@ namespace Airport_kurs.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Aountries");
+                    b.ToTable("Countries");
                 });
 
-            modelBuilder.Entity("Airport_kurs.Models.Flights", b =>
+            modelBuilder.Entity("Airport_kurs.Models.Flight", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -101,7 +99,7 @@ namespace Airport_kurs.Migrations
                     b.ToTable("Flights");
                 });
 
-            modelBuilder.Entity("Airport_kurs.Models.Tickets", b =>
+            modelBuilder.Entity("Airport_kurs.Models.Ticket", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -133,10 +131,13 @@ namespace Airport_kurs.Migrations
                     b.ToTable("Tickets");
                 });
 
-            modelBuilder.Entity("Airport_kurs.Models.Users", b =>
+            modelBuilder.Entity("Airport_kurs.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("AccessLvl")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Password")
@@ -150,45 +151,45 @@ namespace Airport_kurs.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Airport_kurs.Models.Airplanes", b =>
+            modelBuilder.Entity("Airport_kurs.Models.Airplane", b =>
                 {
-                    b.HasOne("Airport_kurs.Models.Airlines", "Airline")
+                    b.HasOne("Airport_kurs.Models.Airline", "Airline")
                         .WithMany()
                         .HasForeignKey("AirlineId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Airport_kurs.Models.Flights", b =>
+            modelBuilder.Entity("Airport_kurs.Models.Flight", b =>
                 {
-                    b.HasOne("Airport_kurs.Models.Countries", "InCountry")
+                    b.HasOne("Airport_kurs.Models.Countrie", "InCountry")
                         .WithMany()
                         .HasForeignKey("InCountryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Airport_kurs.Models.Countries", "ToCountry")
+                    b.HasOne("Airport_kurs.Models.Countrie", "ToCountry")
                         .WithMany()
                         .HasForeignKey("ToCountryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Airport_kurs.Models.Tickets", b =>
+            modelBuilder.Entity("Airport_kurs.Models.Ticket", b =>
                 {
-                    b.HasOne("Airport_kurs.Models.Airlines", "Airline")
+                    b.HasOne("Airport_kurs.Models.Airline", "Airline")
                         .WithMany()
                         .HasForeignKey("AirlineId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Airport_kurs.Models.Airplanes", "Airplane")
+                    b.HasOne("Airport_kurs.Models.Airplane", "Airplane")
                         .WithMany()
                         .HasForeignKey("AirplaneId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Airport_kurs.Models.Flights", "Flight")
+                    b.HasOne("Airport_kurs.Models.Flight", "Flight")
                         .WithMany()
                         .HasForeignKey("FlightId")
                         .OnDelete(DeleteBehavior.Cascade)

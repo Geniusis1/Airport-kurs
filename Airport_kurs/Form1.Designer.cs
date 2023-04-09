@@ -46,6 +46,7 @@
             this.regPassLb = new System.Windows.Forms.Label();
             this.regLoginLb = new System.Windows.Forms.Label();
             this.regLoginTb = new System.Windows.Forms.TextBox();
+            this.lgChangeBdBt = new System.Windows.Forms.Button();
             this.loginRegTab.SuspendLayout();
             this.loginPage.SuspendLayout();
             this.regPage.SuspendLayout();
@@ -63,6 +64,7 @@
             // 
             // loginPage
             // 
+            this.loginPage.Controls.Add(this.lgChangeBdBt);
             this.loginPage.Controls.Add(this.lgErrorsLb);
             this.loginPage.Controls.Add(this.lgLoginBt);
             this.loginPage.Controls.Add(this.lgRegTb);
@@ -230,6 +232,16 @@
             this.regLoginTb.Size = new System.Drawing.Size(178, 22);
             this.regLoginTb.TabIndex = 5;
             // 
+            // lgChangeBdBt
+            // 
+            this.lgChangeBdBt.Location = new System.Drawing.Point(590, 360);
+            this.lgChangeBdBt.Name = "lgChangeBdBt";
+            this.lgChangeBdBt.Size = new System.Drawing.Size(172, 23);
+            this.lgChangeBdBt.TabIndex = 13;
+            this.lgChangeBdBt.Text = "Смена базы данных";
+            this.lgChangeBdBt.UseVisualStyleBackColor = true;
+            this.lgChangeBdBt.Click += new System.EventHandler(this.lgChangeBdBt_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -267,6 +279,7 @@
         private System.Windows.Forms.RadioButton regUserRb;
         private System.Windows.Forms.RadioButton regOperRb;
         private System.Windows.Forms.RadioButton regAdminRb;
+        private System.Windows.Forms.Button lgChangeBdBt;
     }
 }
 

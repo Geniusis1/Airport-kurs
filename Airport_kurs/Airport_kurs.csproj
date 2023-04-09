@@ -165,22 +165,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20230405080630_Init.cs" />
-    <Compile Include="Migrations\20230405080630_Init.designer.cs">
-      <DependentUpon>20230405080630_Init.cs</DependentUpon>
+    <Compile Include="Migrations\20230409071946_Init.cs" />
+    <Compile Include="Migrations\20230409071946_Init.designer.cs">
+      <DependentUpon>20230409071946_Init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20230405092141_addAccessToUsersTable.cs" />
-    <Compile Include="Migrations\20230405092141_addAccessToUsersTable.designer.cs">
-      <DependentUpon>20230405092141_addAccessToUsersTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\ApplicationContextModelSnapshot.cs" />
-    <Compile Include="Models\Airlines.cs" />
-    <Compile Include="Models\Airplanes.cs" />
-    <Compile Include="Models\Context\ApplicationContext.cs" />
-    <Compile Include="Models\Countries.cs" />
-    <Compile Include="Models\Flights.cs" />
-    <Compile Include="Models\Tickets.cs" />
-    <Compile Include="Models\Users.cs" />
+    <Compile Include="Migrations\AirportContextModelSnapshot.cs" />
+    <Compile Include="Models\Airline.cs" />
+    <Compile Include="Models\Airplane.cs" />
+    <Compile Include="Models\Context\AirportContext.cs" />
+    <Compile Include="Models\Countrie.cs" />
+    <Compile Include="Models\Flight.cs" />
+    <Compile Include="Models\Ticket.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

@@ -21,7 +21,7 @@ namespace Airport_kurs.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Aountries",
+                name: "Countries",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -30,7 +30,7 @@ namespace Airport_kurs.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Aountries", x => x.Id);
+                    table.PrimaryKey("PK_Countries", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -40,7 +40,8 @@ namespace Airport_kurs.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Username = table.Column<string>(nullable: true),
-                    Password = table.Column<string>(nullable: true)
+                    Password = table.Column<string>(nullable: true),
+                    AccessLvl = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -85,15 +86,15 @@ namespace Airport_kurs.Migrations
                 {
                     table.PrimaryKey("PK_Flights", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Flights_Aountries_InCountryId",
+                        name: "FK_Flights_Countries_InCountryId",
                         column: x => x.InCountryId,
-                        principalTable: "Aountries",
+                        principalTable: "Countries",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Flights_Aountries_ToCountryId",
+                        name: "FK_Flights_Countries_ToCountryId",
                         column: x => x.ToCountryId,
-                        principalTable: "Aountries",
+                        principalTable: "Countries",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -182,7 +183,7 @@ namespace Airport_kurs.Migrations
                 name: "Airlines");
 
             migrationBuilder.DropTable(
-                name: "Aountries");
+                name: "Countries");
         }
     }
 }
