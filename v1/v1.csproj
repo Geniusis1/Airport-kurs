@@ -201,7 +201,6 @@
     <EmbeddedResource Include="Forms\View.resx">
       <DependentUpon>View.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="app.db" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

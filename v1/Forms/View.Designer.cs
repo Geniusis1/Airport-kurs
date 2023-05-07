@@ -147,10 +147,10 @@
             this.searchDataView.RowTemplate.Height = 24;
             this.searchDataView.Size = new System.Drawing.Size(539, 424);
             this.searchDataView.TabIndex = 5;
-            // 
-            // searchBt
-            // 
-            this.searchBt.Location = new System.Drawing.Point(22, 189);
+			// 
+			// searchBt
+			// 
+			this.searchBt.Location = new System.Drawing.Point(22, 189);
             this.searchBt.Name = "searchBt";
             this.searchBt.Size = new System.Drawing.Size(200, 23);
             this.searchBt.TabIndex = 4;

@@ -99,6 +99,38 @@ namespace Airport_kurs.Migrations
                     b.ToTable("Flights");
                 });
 
+            modelBuilder.Entity("Airport_kurs.Models.MyTable", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("AirlineId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("AirplaneId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Class")
+                        .HasColumnType("TEXT");
+
+                    b.Property<float>("Cost")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("FlightId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AirlineId");
+
+                    b.HasIndex("AirplaneId");
+
+                    b.HasIndex("FlightId");
+
+                    b.ToTable("MyTable");
+                });
+
             modelBuilder.Entity("Airport_kurs.Models.Ticket", b =>
                 {
                     b.Property<int>("Id")
@@ -171,6 +203,27 @@ namespace Airport_kurs.Migrations
                     b.HasOne("Airport_kurs.Models.Countrie", "ToCountry")
                         .WithMany()
                         .HasForeignKey("ToCountryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Airport_kurs.Models.MyTable", b =>
+                {
+                    b.HasOne("Airport_kurs.Models.Airline", "Airline")
+                        .WithMany()
+                        .HasForeignKey("AirlineId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Airport_kurs.Models.Airplane", "Airplane")
+                        .WithMany()
+                        .HasForeignKey("AirplaneId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Airport_kurs.Models.Flight", "Flight")
+                        .WithMany()
+                        .HasForeignKey("FlightId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

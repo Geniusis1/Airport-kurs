@@ -1,5 +1,4 @@
-﻿using Airport_kurs.Attr;
-using System;
+﻿using System;
 
 namespace Airport_kurs.Models
 {
@@ -8,11 +7,9 @@ namespace Airport_kurs.Models
         public int Id { get; set; }
 
         public int InCountryId { get; set; }
-        [SkipProperty]
         public Countrie InCountry { get; set; }
 
         public int ToCountryId { get; set; }
-        [SkipProperty]
         public Countrie ToCountry { get; set; }
 
         public DateTime DepartureTime { get; set; }

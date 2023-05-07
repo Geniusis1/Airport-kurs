@@ -19,9 +19,9 @@ namespace Airport_kurs.Models
 
         public User(string username, string password, int access)
         {
-            this.Username = username;
-            this.Password = PassToHashString(password);
-            this.AccessLvl = access;
+            Username = username;
+			Password = PassToHashString(password);
+            AccessLvl = access;
         }
 
         //Хеширование пароля

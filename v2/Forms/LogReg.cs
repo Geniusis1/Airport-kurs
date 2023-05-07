@@ -22,37 +22,37 @@ namespace Airport_kurs
 
         private void regRegBt_Click(object sender, EventArgs e)
         {
-            string username = regLoginTb.Text;
+			string username = regLoginTb.Text.Trim();
             string password = regPassTb.Text;
 
-            /*
+			/*
              * Уровень доступа будет хранится в типе int.
              * admin = 2
              * oper = 1
              * user = 0
              */
+
             int access = regUserRb.Checked ? 0 : regOperRb.Checked ? 1 : regAdminRb.Checked ? 2 : 0;
 
             //--Проверка на заполенине всех полей
-            if (username == null || password == null
-                || (!regUserRb.Checked && !regOperRb.Checked && !regAdminRb.Checked))
+            if (username == "" || password == "")
             {
                 regErrorsLb.Text = "Ошибка регистрации!";
                 return;
             }
 
             //--Проверка свободности логина
-            var users = db.Users.Where(u => u.Username == username).ToList();
+            var users = db.Users.FirstOrDefault(u => u.Username == username);
 
-            if (users.Count != 0)
+            if (users != null)
             {
                 regErrorsLb.Text = "Логин занят.";
                 ClearTb();
                 return;
             }
 
-            //--Занесение информации в БД
-            try
+			//--Занесение информации в БД
+			try
             {
                 User newUser = new User(username, password, access);
 
@@ -66,8 +66,8 @@ namespace Airport_kurs
                 }
                 catch (DbUpdateException)
                 {
-                    //Ошибка, возникающая когда в бд нет нужной таблицы
-                    regErrorsLb.Text = "Ошибка БД. Смените БД на валидную!!!";
+					//Ошибка, возникающая когда в бд нет нужной таблицы
+					regErrorsLb.Text = "Ошибка БД. Смените БД на валидную!!!";
                     return;
                 }
 
@@ -95,7 +95,7 @@ namespace Airport_kurs
             string password = User.PassToHashString(lgPassTb.Text);
 
             //--Проверка на заполенине всех полей
-            if (username == null || password == null)
+            if (username == "" || password == "")
             {
                 lgErrorsLb.Text = "Такого пользователя не существует.";
                 ClearTb();
@@ -103,9 +103,9 @@ namespace Airport_kurs
             }
 
             //--Поиск пользователя по логину
-            var users = db.Users.Where(u => u.Username == username).ToList();
+            var users = db.Users.First(u => u.Username == username);
 
-            if (users.Count == 0)
+            if (users == null)
             {
                 lgErrorsLb.Text = "Такого пользователя не существует.";
                 ClearTb();
@@ -113,18 +113,16 @@ namespace Airport_kurs
             }
 
             //--Сравнение пароля
-            if (!users[0].ComparisonHash(password))
+            if (!users.ComparisonHash(password))
             {
                 lgErrorsLb.Text = "Такого пользователя не существует.";
                 ClearTb();
                 return;
             }
 
-            var view = new View(users[0].AccessLvl, this, db);
+            var view = new View(users.AccessLvl, this, db);
             this.Hide();
             view.ShowDialog();
-            //Закрытие окна входа/регитсрации после закрытия окна просмотра
-            //this.Close();
         }
 
         private void ClearTb()

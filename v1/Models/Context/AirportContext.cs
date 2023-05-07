@@ -101,5 +101,12 @@ namespace Airport_kurs.Models
             }
             return db;
         }
-    }
+
+		public static void Update<TEntity>(TEntity entity, DbContext context)
+	where TEntity : class
+		{
+			context.Entry(entity).State = EntityState.Modified;
+			context.SaveChanges();
+		}
+	}
 }

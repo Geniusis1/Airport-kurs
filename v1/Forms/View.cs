@@ -78,7 +78,6 @@ namespace Airport_kurs
         private void UserError()
         {
             MessageBox.Show("Ошибка, просмотр информации доступен только для администратора");
-            //logReg.Show();
         }
         #endregion
 
@@ -90,13 +89,13 @@ namespace Airport_kurs
             //Airplanes
             foreach (var i in db.Airplanes.ToList())
             {
-                tabs[0].Rows.Add(i.Id, i.AirlineId, i.Type);
+                tabs[0].Rows.Add(i.Id, db.Airlines.Where(t => i.AirlineId == t.Id).First().Name, i.Type);
             }
             //Flight
             foreach (var i in db.Flights.ToList())
             {
                 tabs[1].Rows.Add(i.Id, i.InCountryId, i.ToCountryId,
-                    i.DepartureTime, i.ArrivalTimeSchedule, i.ArrivalTime, i.MaxPeople, i.People);
+                    i.DepartureTime, i.ArrivalTimeSchedule, i.ArrivalTime.TimeOfDay, i.MaxPeople, i.People);
             }
             //Ticket
             foreach (var i in db.Tickets.ToList())
